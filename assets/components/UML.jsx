@@ -26,7 +26,13 @@ const UML = ({ object, type }) => {
       };
       if (prop_is_func) {
         li_methods.push(
-          <li style={{ fontSize: "0.8rem" }}>
+          <li
+            contentEditable="true"
+            onKeyUp={({ target }) => {
+              if (!target.innerHTML) target.remove();
+            }}
+            style={{ fontSize: "0.8rem" }}
+          >
             {public_symbols[prop_public] +
               prop_name +
               (prop_type !== "" ? ":" + prop_type : "")}
@@ -34,7 +40,13 @@ const UML = ({ object, type }) => {
         );
       } else {
         li_field_vars.push(
-          <li style={{ fontSize: "0.8rem" }}>
+          <li
+            contentEditable="true"
+            onKeyUp={({ target }) => {
+              if (!target.innerHTML) target.remove();
+            }}
+            style={{ fontSize: "0.8rem" }}
+          >
             {public_symbols[prop_public] +
               prop_name +
               (prop_type !== "" ? ":" + prop_type : "")}
