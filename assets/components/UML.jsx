@@ -55,18 +55,34 @@ const UML = ({ object, type }) => {
       }
     }
   );
+  let font_list = [
+    "Montserrat",
+    "Menlo",
+    "Monaco",
+    "Lucida Console",
+    "Liberation Mono",
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+  ];
+  let border_list = ["solid", "dotted", "double", "outset"];
+  let selected_font = font_list[Math.floor(Math.random() * font_list.length)];
+  let selected_border =
+    border_list[Math.floor(Math.random() * border_list.length)];
+  let selected_border_radius =
+    Math.floor(Math.random() * 2) == 0 ? "15px" : "0px";
   return (
     <div
       style={{
-        border: "1px solid black",
+        border: "1px black " + selected_border,
         margin: "1rem",
         display: "flex",
         alignSelf: "flex-start",
         justifyContent: "center",
         flexDirection: "column",
         overflow: "hidden",
-        borderRadius: "15px",
-        fontFamily: "Montserrat",
+        borderRadius: selected_border_radius,
+        fontFamily: selected_font,
         color: "black",
       }}
     >
@@ -76,7 +92,7 @@ const UML = ({ object, type }) => {
           alignSelf: "flex-start",
           alignItems: "center",
           justifyContent: "center",
-          borderBottom: "1px solid black",
+          borderBottom: "1px black " + selected_border,
           width: "100%",
           padding: "0rem 1rem",
           position: "relative",
@@ -87,8 +103,10 @@ const UML = ({ object, type }) => {
             fontSize: "1rem",
             margin: "0px",
             padding: "0.3rem 0rem",
-            borderRadius: "100%",
-            border: "solid 1px black",
+            borderRadius: Math.floor(Math.random() * 2) == 0 ? "100%" : "0%",
+            border:
+              "1px black " +
+              border_list[Math.floor(Math.random() * border_list.length)],
             width: "1.3rem",
             height: "1.3rem",
             display: "flex",
@@ -127,7 +145,7 @@ const UML = ({ object, type }) => {
             alignItems: "flex-start",
             justifyContent: "flex-start",
             width: "100%",
-            borderTop: "1px solid black",
+            borderTop: "1px black " + selected_border,
             padding: "0rem 0.3rem",
           }}
         >
